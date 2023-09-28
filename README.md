@@ -1,5 +1,7 @@
 # PRODUCTIV 
 
+<h3>Maxmize window to new virtual desktop implemented for windows</h3>
+
 One of the most <b> underrated </b> productivity features available in Windows is the <b>virtual desktop system</b>. Due to its less user-friendliness, most people don't make the maximum use of virtual desktops.
 
 Productiv is a tool for Windows machines that <b>enhances the usability of virtual desktops</b> in Windows by making windows behave similar to MacBooks when maximizing a window (<b>Maximizing a window to a new virtual desktop</b>) so that users can switch between Maximized windows using the four finger gesture similar to in a MacBook.
