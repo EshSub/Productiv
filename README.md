@@ -13,3 +13,8 @@ I used to use a MacBook and suddenly had to switch to Windows. After the switch,
 ## Where is the source code?
 
 I'm still cleaning, refactoring, and finalizing the code and will upload it ASAP. 
+
+## Without these work this wouldn't have been possible
+[CBT hooks tutorial](https://www.codeproject.com/Articles/18638/Using-Window-Messages-to-Implement-Global-System-H)
+
+[VirtualDesktop by MScholtes](https://github.com/MScholtes/VirtualDesktop)
