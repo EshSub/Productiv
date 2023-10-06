@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="ProductivWinUINav.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+        <StackPanel>
+
+            <TextBlock>Startup</TextBlock>
+            <AppBarSeparator />
+            <Grid>
+                <CheckBox Content="Launch on start" />
+            </Grid>
+            <Grid>
+                <CheckBox Content="Open app minimized" />
+            </Grid>
+
+            <TextBlock>Virtual Desktop Behavior</TextBlock>
+            <AppBarSeparator />
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Add new desktops</TextBlock>
+                    <RadioButton Content="At first" Checked='RadioButton_Checked'/>
+                    <RadioButton Content="At last" Checked="RadioButton_Checked"/>
+                    <RadioButton Content="Taskbar order" Checked="RadioButton_Checked"/>
+                </StackPanel>
+
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Page>

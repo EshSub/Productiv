@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "ProductivWinUINav (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "ProductivWinUINav (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

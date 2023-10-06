@@ -1,0 +1,19 @@
+LIBRARY	GlobalCbtHook
+
+EXPORTS
+	InitializeCbtHook
+	UninitializeCbtHook
+	InitializeShellHook
+	UninitializeShellHook
+    InitializeKeyboardHook
+    UninitializeKeyboardHook
+    InitializeMouseHook
+    UninitializeMouseHook
+    InitializeKeyboardLLHook
+    UninitializeKeyboardLLHook
+    InitializeMouseLLHook
+    UninitializeMouseLLHook
+    InitializeCallWndProcHook
+    UninitializeCallWndProcHook
+    InitializeGetMsgHook
+    UninitializeGetMsgHook
