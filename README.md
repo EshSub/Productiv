@@ -39,3 +39,5 @@ I'm still cleaning, refactoring, and finalizing the code and will upload it ASAP
 [CBT hooks tutorial](https://www.codeproject.com/Articles/18638/Using-Window-Messages-to-Implement-Global-System-H)
 
 [VirtualDesktop by MScholtes](https://github.com/MScholtes/VirtualDesktop)
+
+Reddit: [@tiktechtoe](https://www.reddit.com/user/tiktechtoe)
