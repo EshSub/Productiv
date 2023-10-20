@@ -6,7 +6,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using VirtualDesktop;
+//using VirtualDesktop1123H2;
+using VirtualDesktop11;
+using Windows.System.Threading;
 
 namespace Productiv
 {
@@ -16,6 +18,8 @@ namespace Productiv
     {
 
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        static Desktop tempDesktop = null;
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -118,6 +122,23 @@ namespace Productiv
         {
             EnumWindows(new EnumWindowsProc(EnumWindowsCallbackMaxmizeWindows), IntPtr.Zero);
         }
+
+        public static void ActivateTaskSwitcher()
+        {
+            tempDesktop = VirtualDesktopAdapters.CurrentDesktop();
+            VirtualDesktopAdapters.GetDesktopFromIndex(0).MakeVisible();
+
+        }
+
+        public static void DestroyTaskSwitcher()
+        {
+            if (tempDesktop != null)
+            {
+                tempDesktop.MakeVisible();
+                tempDesktop = null;
+            }
+        }
+
     }
 }
 

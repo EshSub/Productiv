@@ -871,9 +871,21 @@ namespace GlobalHooksTest
 
         private void _GlobalHooks_CbtActivate(IntPtr Handle)
         {
-            if (debug.Checked)
+            
+            if (GetWindowName(Handle) == "Task View")
             {
-                ListCbt.Items.Add("Activate: " + GetWindowName(Handle));
+                if (debug.Checked)
+                {
+                    ListCbt.Items.Add("Task Switcher activate");
+                }
+                //EventHandlers.ActivateTaskSwitcher();
+            }
+            else
+            {
+                if (debug.Checked)
+                {
+                    ListCbt.Items.Add("Create: " + GetWindowName(Handle));
+                }
             }
         }
 
@@ -887,7 +899,23 @@ namespace GlobalHooksTest
 
         private void _GlobalHooks_CbtDestroyWindow(IntPtr Handle)
         {
-            //ListCbt.Items.Add("Destroy: " + GetWindowName(Handle) + Handle.ToString());
+            
+            if (GetWindowName(Handle) == "Task View")
+            {
+                if (debug.Checked)
+                {
+                    ListCbt.Items.Add("Task Switcher destroy");
+                }
+                //EventHandlers.DestroyTaskSwitcher();
+            }
+            else
+            {
+                if (debug.Checked)
+                {
+                    ListCbt.Items.Add("Destroy: " + GetWindowName(Handle) + " " + Handle.ToString());
+                }
+            }
+
 
         }
 
