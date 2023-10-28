@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //using VirtualDesktop1123H2;
-using VirtualDesktop11;
+//using VirtualDesktop11;
+using VirtualDesktop;
 using Windows.Media.Streaming.Adaptive;
 
 namespace Productiv
@@ -28,7 +29,7 @@ namespace Productiv
             var windowName = Helpers.GetWindowApplicationName(handle);
             desktop.MoveWindow(handle);
             desktop.MakeVisible();
-            desktop.Move(1);
+            //desktop.Move(1);
             desktop.SetName(windowName);
         }
 
