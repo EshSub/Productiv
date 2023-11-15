@@ -10,16 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Productiv", "GlobalHooksTes
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{63A46244-3C79-44FB-B406-93A1F19F6687}"
-	ProjectSection(SolutionItems) = preProject
-		VirtualDesktop\VirtualDesktop.cs = VirtualDesktop\VirtualDesktop.cs
-		VirtualDesktop\VirtualDesktop11-21H2.cs = VirtualDesktop\VirtualDesktop11-21H2.cs
-		VirtualDesktop\VirtualDesktop11.cs = VirtualDesktop\VirtualDesktop11.cs
-		VirtualDesktop\VirtualDesktop11InsiderCanary.cs = VirtualDesktop\VirtualDesktop11InsiderCanary.cs
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{4400074E-D184-4E41-8866-175D172457B9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualDesktop", "VirtualDesktop\VirtualDesktop.csproj", "{44AE8740-7C89-4244-AD63-B0465326E96F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductivWinUINav", "ProductivWinUINav\ProductivWinUINav.csproj", "{AC543718-812A-49DF-BF48-335B1375CEE0}"
 EndProject
@@ -137,35 +129,6 @@ Global
 		{4400074E-D184-4E41-8866-175D172457B9}.Release|Win32.Build.0 = Release
 		{4400074E-D184-4E41-8866-175D172457B9}.Release|x64.ActiveCfg = Release
 		{4400074E-D184-4E41-8866-175D172457B9}.Release|x64.Build.0 = Release
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|ARM.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Debug|x64.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|Any CPU.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|Any CPU.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|ARM.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|ARM.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|ARM64.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|ARM64.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|Win32.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|Win32.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|x64.ActiveCfg = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Documentation|x64.Build.0 = Debug|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|ARM.ActiveCfg = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|ARM.Build.0 = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|ARM64.Build.0 = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|Win32.ActiveCfg = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|Win32.Build.0 = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|x64.ActiveCfg = Release|Any CPU
-		{44AE8740-7C89-4244-AD63-B0465326E96F}.Release|x64.Build.0 = Release|Any CPU
 		{AC543718-812A-49DF-BF48-335B1375CEE0}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{AC543718-812A-49DF-BF48-335B1375CEE0}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{AC543718-812A-49DF-BF48-335B1375CEE0}.Debug|ARM.ActiveCfg = Debug|x64

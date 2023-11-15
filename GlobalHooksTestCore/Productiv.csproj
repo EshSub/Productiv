@@ -11,7 +11,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>WinExe</OutputType>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>GlobalHooksTest.Form1</StartupObject>
+    <StartupObject>Productiv.Form1</StartupObject>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
@@ -43,6 +43,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="VirtualDesktop.cs" />
+    <Compile Remove="VirtualDesktop11.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Update="System">
       <Name>System</Name>
     </Reference>
@@ -62,9 +66,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
     <PackageReference Include="NuGet.Configuration" Version="6.7.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VirtualDesktop\VirtualDesktop.csproj" />
+    <PackageReference Include="Slions.VirtualDesktop" Version="6.2.1" />
   </ItemGroup>
   <PropertyGroup>
     <PreBuildEvent>copy $(SolutionDir)GlobalCbtHook\x64\debug\GlobalCbtHook.dll "$(TargetDir)" /y /v</PreBuildEvent>

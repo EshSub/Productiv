@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using VirtualDesktop1123H2;
-//using VirtualDesktop11;
-using VirtualDesktop;
+using System.Windows;
 using Windows.Media.Streaming.Adaptive;
+using WindowsDesktop;
+using Desktop = WindowsDesktop.VirtualDesktop;
 
 namespace Productiv
 {
@@ -25,12 +25,20 @@ namespace Productiv
                 Console.WriteLine("MoveToNewDesktop: handle is zero");
                 return;
             }
-            var desktop = Desktop.Create();
-            var windowName = Helpers.GetWindowApplicationName(handle);
-            desktop.MoveWindow(handle);
-            desktop.MakeVisible();
-            //desktop.Move(1);
-            desktop.SetName(windowName);
+            try
+            {
+                var desktop = Desktop.Create();
+                var windowName = Helpers.GetWindowApplicationName(handle);
+                desktop.Switch();
+                //desktop.Move(1);
+                MoveWindowToDesktop(handle, desktop);
+                //desktop.Name = windowName;
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e);
+            }
         }
 
         public static void RemoveCurrent()
@@ -40,23 +48,31 @@ namespace Productiv
             {
                 return;
             }
-            current.Remove(Desktop.FromIndex(0));
+            current.Remove(Desktop.GetDesktops()[0]);
         }
 
         public static bool IsMain(Desktop desktop)
         {
-            var main = Desktop.FromIndex(0);
+            var main = Desktop.GetDesktops()[0];
             return desktop.Equals(main);
         }
 
         public static bool IsCurrentDesktopUnamed()
         {
-            return Desktop.HasDesktopNameFromIndex(Desktop.FromDesktop(Desktop.Current));
+            if (Desktop.Current.Name == null)
+            {
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void MoveWindowToDesktop(IntPtr Handle, Desktop desktop)
         {
-            desktop.MoveWindow(Handle);
+            //desktop.MoveWindow(Handle);
         }
 
         public static Desktop CurrentDesktop()
@@ -66,12 +82,12 @@ namespace Productiv
 
         public static Desktop GetDesktopFromIndex(int index)
         {
-            return Desktop.FromIndex(index);
+            return Desktop.GetDesktops()[index];
         }
 
         public static Desktop GetDesktopFromHandle(IntPtr Handle)
         {
-            return Desktop.FromWindow(Handle);
+            return Desktop.FromHwnd(Handle);
         }
 
         public static void RemoveDesktop(Desktop desktop)

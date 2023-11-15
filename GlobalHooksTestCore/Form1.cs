@@ -15,12 +15,11 @@ using System.Diagnostics;
 using System.Resources;
 using System.Reflection.Metadata;
 using Microsoft.Win32;
-using Productiv;
 using NuGet.Configuration;
 using System.Configuration;
 using WinRT;
 
-namespace GlobalHooksTest
+namespace Productiv
 {
     public class Form1 : Form
     {
@@ -126,8 +125,8 @@ namespace GlobalHooksTest
         private void HideWindow()
         {
 
-            this.Hide();
-            this.ShowInTaskbar = false;
+            Hide();
+            ShowInTaskbar = false;
             notifyIcon1.Visible = true;
         }
 
@@ -139,17 +138,17 @@ namespace GlobalHooksTest
 
             EventHandlers.OnAppStart();
 
-            _GlobalHooks = new GlobalHooks(this.Handle);
+            _GlobalHooks = new GlobalHooks(Handle);
 
             // Set the hook events
-            _GlobalHooks.CBT.Activate += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_CbtActivate);
-            _GlobalHooks.CBT.CreateWindow += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_CbtCreateWindow);
-            _GlobalHooks.CBT.DestroyWindow += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_CbtDestroyWindow);
-            _GlobalHooks.CBT.MinMax += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_CbtMinMax);
-            _GlobalHooks.Shell.WindowActivated += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowActivated);
-            _GlobalHooks.Shell.WindowCreated += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowCreated);
-            _GlobalHooks.Shell.WindowDestroyed += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowDestroyed);
-            _GlobalHooks.Shell.Redraw += new GlobalHooksTest.GlobalHooks.WindowEventHandler(_GlobalHooks_ShellRedraw);
+            _GlobalHooks.CBT.Activate += new GlobalHooks.WindowEventHandler(_GlobalHooks_CbtActivate);
+            _GlobalHooks.CBT.CreateWindow += new GlobalHooks.WindowEventHandler(_GlobalHooks_CbtCreateWindow);
+            _GlobalHooks.CBT.DestroyWindow += new GlobalHooks.WindowEventHandler(_GlobalHooks_CbtDestroyWindow);
+            _GlobalHooks.CBT.MinMax += new GlobalHooks.WindowEventHandler(_GlobalHooks_CbtMinMax);
+            _GlobalHooks.Shell.WindowActivated += new GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowActivated);
+            _GlobalHooks.Shell.WindowCreated += new GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowCreated);
+            _GlobalHooks.Shell.WindowDestroyed += new GlobalHooks.WindowEventHandler(_GlobalHooks_ShellWindowDestroyed);
+            _GlobalHooks.Shell.Redraw += new GlobalHooks.WindowEventHandler(_GlobalHooks_ShellRedraw);
             _GlobalHooks.MouseLL.MouseMove += new MouseEventHandler(MouseLL_MouseMove);
 
             _GlobalHooks.MouseLL.Start();
@@ -186,8 +185,8 @@ namespace GlobalHooksTest
             }
             #endregion
 
-            HideWindow();
-            this.WindowState = FormWindowState.Minimized;
+            //HideWindow();
+            //WindowState = FormWindowState.Minimized;
         }
 
         #region COM imports
@@ -202,18 +201,18 @@ namespace GlobalHooksTest
 
         private void ImportStatusForm_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (WindowState == FormWindowState.Minimized)
             {
                 notifyIcon1.Visible = true;
                 notifyIcon1.ShowBalloonTip(1000);
-                this.ShowInTaskbar = false;
+                ShowInTaskbar = false;
             }
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.ShowInTaskbar = true;
-            this.Show();
+            ShowInTaskbar = true;
+            Show();
             notifyIcon1.Visible = false;
         }
 
@@ -821,7 +820,7 @@ namespace GlobalHooksTest
         [STAThread]
         static void Main()
         {
-            Form1 form = new Form1();
+            var form = new Form1();
             Application.Run(form);
         }
 
@@ -852,7 +851,7 @@ namespace GlobalHooksTest
         private string GetWindowName(IntPtr Hwnd)
         {
             // This function gets the name of a window from its handle
-            StringBuilder Title = new StringBuilder(256);
+            var Title = new StringBuilder(256);
             GetWindowText(Hwnd, Title, 256);
 
             return Title.ToString().Trim();
@@ -861,7 +860,7 @@ namespace GlobalHooksTest
         private string GetWindowClass(IntPtr Hwnd)
         {
             // This function gets the name of a window class from a window handle
-            StringBuilder Title = new StringBuilder(256);
+            var Title = new StringBuilder(256);
             RealGetWindowClass(Hwnd, Title, 256);
 
             return Title.ToString().Trim();
@@ -871,7 +870,7 @@ namespace GlobalHooksTest
 
         private void _GlobalHooks_CbtActivate(IntPtr Handle)
         {
-            
+
             if (GetWindowName(Handle) == "Task View")
             {
                 if (debug.Checked)
@@ -899,7 +898,7 @@ namespace GlobalHooksTest
 
         private void _GlobalHooks_CbtDestroyWindow(IntPtr Handle)
         {
-            
+
             if (GetWindowName(Handle) == "Task View")
             {
                 if (debug.Checked)
@@ -930,7 +929,7 @@ namespace GlobalHooksTest
                 ListShell.Items.Add("MinMax: " + Helpers.GetWindowName(Handle) + Helpers.GetWindowApplicationName(Handle) + Handle.ToString());
 
             }
-            string windowName = Helpers.GetWindowName(Handle);
+            var windowName = Helpers.GetWindowName(Handle);
 
             if (windowName != null && Handle == GetForegroundWindow())
             {
@@ -1005,7 +1004,7 @@ namespace GlobalHooksTest
 
         private void hideButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void SpreadWindowsBtn_Click(object sender, EventArgs e)
@@ -1057,7 +1056,7 @@ namespace GlobalHooksTest
 
         private void GithubProfileLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/EshSub");
+            var sInfo = new ProcessStartInfo("https://github.com/EshSub");
             sInfo.UseShellExecute = true;
             Process.Start(sInfo);
 
@@ -1070,7 +1069,7 @@ namespace GlobalHooksTest
 
         private void RepoLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/EshSub/Productiv");
+            var sInfo = new ProcessStartInfo("https://github.com/EshSub/Productiv");
             sInfo.UseShellExecute = true;
             Process.Start(sInfo);
         }
@@ -1155,7 +1154,7 @@ namespace GlobalHooksTest
         private string GetWindowName(IntPtr Hwnd)
         {
             // This function gets the name of a window from its handle
-            StringBuilder Title = new StringBuilder(256);
+            var Title = new StringBuilder(256);
             GetWindowText(Hwnd, Title, 256);
 
             return Title.ToString().Trim();
@@ -1164,7 +1163,7 @@ namespace GlobalHooksTest
         private string GetWindowClass(IntPtr Hwnd)
         {
             // This function gets the name of a window class from a window handle
-            StringBuilder Title = new StringBuilder(256);
+            var Title = new StringBuilder(256);
             RealGetWindowClass(Hwnd, Title, 256);
 
             return Title.ToString().Trim();
@@ -1188,12 +1187,12 @@ namespace GlobalHooksTest
         public MyCustomApplicationContext()
         {
 
-            this.notify_icon.ContextMenuStrip = new ContextMenuStrip();
-            this.notify_icon.Icon = new Icon("D:\\PROJECTS\\Global-CbtHook2\\Global-CbtHook\\GlobalHooksTestCore\\icon.ico");
-            this.notify_icon.Visible = true;
-            this.notify_icon.ContextMenuStrip.Items.Add("Properties", null, this.PropertiesClick);
+            notify_icon.ContextMenuStrip = new ContextMenuStrip();
+            notify_icon.Icon = new Icon("D:\\PROJECTS\\Global-CbtHook2\\Global-CbtHook\\GlobalHooksTestCore\\icon.ico");
+            notify_icon.Visible = true;
+            notify_icon.ContextMenuStrip.Items.Add("Properties", null, PropertiesClick);
             //this.notify_icon.ContextMenuStrip.Items.Add("Test2", null, this.MenuTest2_Click);
-            this.notify_icon.ContextMenuStrip.Items.Add("Exit", null, this.Exit);
+            notify_icon.ContextMenuStrip.Items.Add("Exit", null, Exit);
 
             #region VD initializing
             //VirtualDesktop.Configure();
@@ -1266,7 +1265,7 @@ namespace GlobalHooksTest
         void PropertiesClick(object sender, EventArgs e)
         {
             // Hide tray icon, otherwise it will remain shown until user mouses over it
-            this.notify_icon.Visible = false;
+            notify_icon.Visible = false;
 
             Application.Exit();
         }
@@ -1274,7 +1273,7 @@ namespace GlobalHooksTest
         void Exit(object sender, EventArgs e)
         {
             // Hide tray icon, otherwise it will remain shown until user mouses over it
-            this.notify_icon.Visible = false;
+            notify_icon.Visible = false;
 
             Application.Exit();
         }

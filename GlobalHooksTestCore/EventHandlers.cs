@@ -6,17 +6,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-//using VirtualDesktop1123H2;
-//using VirtualDesktop11;
-using VirtualDesktop;
 using Windows.System.Threading;
+using WindowsDesktop;
+using Desktop = WindowsDesktop.VirtualDesktop;
 
 namespace Productiv
 {
-
+    
     internal class EventHandlers
     {
-
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
         static Desktop tempDesktop = null;
@@ -126,7 +124,7 @@ namespace Productiv
         public static void ActivateTaskSwitcher()
         {
             tempDesktop = VirtualDesktopAdapters.CurrentDesktop();
-            VirtualDesktopAdapters.GetDesktopFromIndex(0).MakeVisible();
+            VirtualDesktopAdapters.GetDesktopFromIndex(0).Switch();
 
         }
 
@@ -134,7 +132,7 @@ namespace Productiv
         {
             if (tempDesktop != null)
             {
-                tempDesktop.MakeVisible();
+                tempDesktop.Switch();
                 tempDesktop = null;
             }
         }
